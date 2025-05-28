@@ -23,6 +23,10 @@ PX4 is highly portable, OS-independent and supports Linux, NuttX and MacOS out o
 ## Gelo tips
 
 ```bash
+sudo apt-get install libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly -y
+```
+
+```bash
 cd <PX4-Autopilot_clone>
 DONT_RUN=1 make px4_sitl_default gazebo-classic
 source ~/catkin_ws/devel/setup.bash    # (optional)
@@ -30,6 +34,10 @@ source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
 roslaunch px4 posix_sitl.launch
+```
+
+```
+
 ```
 
 ## Releases
