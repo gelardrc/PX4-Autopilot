@@ -20,6 +20,18 @@ PX4 is highly portable, OS-independent and supports Linux, NuttX and MacOS out o
   * many more experimental types (Blimps, Boats, Submarines, High Altitude Balloons, Spacecraft, etc)
 * Releases: [Downloads](https://github.com/PX4/PX4-Autopilot/releases)
 
+## Gelo tips
+
+```bash
+cd <PX4-Autopilot_clone>
+DONT_RUN=1 make px4_sitl_default gazebo-classic
+source ~/catkin_ws/devel/setup.bash    # (optional)
+source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic
+roslaunch px4 posix_sitl.launch
+```
+
 ## Releases
 
 Release notes and supporting information for PX4 releases can be found on the [Developer Guide](https://docs.px4.io/main/en/releases/).
@@ -28,7 +40,6 @@ Release notes and supporting information for PX4 releases can be found on the [D
 
 The [PX4 User Guide](https://docs.px4.io/main/en/) explains how to assemble [supported vehicles](https://docs.px4.io/main/en/airframes/airframe_reference.html) and fly drones with PX4. See the [forum and chat](https://docs.px4.io/main/en/#getting-help) if you need help!
 
-
 ## Changing Code and Contributing
 
 This [Developer Guide](https://docs.px4.io/main/en/development/development.html) is for software developers who want to modify the flight stack and middleware (e.g. to add new flight modes), hardware integrators who want to support new flight controller boards and peripherals, and anyone who wants to get PX4 working on a new (unsupported) airframe/vehicle.
@@ -36,13 +47,11 @@ This [Developer Guide](https://docs.px4.io/main/en/development/development.html)
 Developers should read the [Guide for Contributions](https://docs.px4.io/main/en/contribute/).
 See the [forum and chat](https://docs.px4.io/main/en/#getting-help) if you need help!
 
-
 ## Weekly Dev Call
 
 The PX4 Dev Team syncs up on a [weekly dev call](https://docs.px4.io/main/en/contribute/).
 
 > **Note** The dev call is open to all interested developers (not just the core dev team). This is a great opportunity to meet the team and contribute to the ongoing development of the platform. It includes a QA session for newcomers. All regular calls are listed in the [Dronecode calendar](https://www.dronecode.org/calendar/).
-
 
 ## Maintenance Team
 
@@ -59,4 +68,5 @@ For the most up to date information, please visit [PX4 User Guide > Autopilot Ha
 The PX4 Autopilot project including all of its trademarks is hosted under [Dronecode](https://www.dronecode.org/), part of the Linux Foundation.
 
 <a href="https://www.dronecode.org/" style="padding:20px" ><img src="https://dronecode.org/wp-content/uploads/sites/24/2020/08/dronecode_logo_default-1.png" alt="Dronecode Logo" width="110px"/></a>
-<div style="padding:10px">&nbsp;</div>
+<div style="padding:10px"> </div>
+
